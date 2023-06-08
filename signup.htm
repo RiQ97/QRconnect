@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/main.css" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+        transition: all 0.2s linear;
+      }
+      .form-container {
+        min-height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: url(bg.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+        perspective: 600px;
+      }
+
+      .form-container form {
+        height: 580px;
+        width: 350px;
+        background: rgb(255, 255, 255, 0.1);
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        border-left: 1px solid rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        transform-style: preserve-3d;
+      }
+      .form-container form h3 {
+        font-size: 30px;
+        padding: 30px;
+        color: #ccc;
+        letter-spacing: 3px;
+      }
+      .form-container form i {
+        padding: 0 0px;
+        font-size: 20px;
+        color: #bbb;
+      }
+
+      .form-container form input {
+        outline: none;
+        border: none;
+        height: 40px;
+        width: 82%;
+        background: rgba(0, 0, 0, 0.1);
+        color: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) inset;
+        font-size: 17px;
+        padding: 0 10px;
+        margin: 12px 0;
+        letter-spacing: 1px;
+      }
+      .form-container form input[type="submit"] {
+        width: 90%;
+        cursor: pointer;
+        background: linear-gradient(90deg, deeppink, blueviolet);
+        margin-top: 20px;
+        border-radius: 50px;
+      }
+      .form-container form input[type="submit"]:hover {
+        letter-spacing: 4px;
+      }
+    </style>
+    <title>SignUp</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <form action="" id="form">
+        <h3>SignUp</h3>
+        <i class="fas fa-user"></i>
+        <input type="text" placeholder="name" />
+        <i class="fas fa-at"></i>
+        <input type="email" placeholder="email" />
+        <i class="fas fa-lock"></i>
+        <input type="number" placeholder="number" />
+        <div class="password-container">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="password" placeholder="password" />
+          <button id="togglePassword" type="button">
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+        <div class="password-container">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="cpassword" placeholder="what's ur password" />
+          <button id="togglecPassword" type="button">
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+        <input type="submit" value="Signup" />
+        <input type="submit" value="Login" id="loginButton" />
+      </form>
+    </div>
+    <script>
+      let form = document.getElementById("form");
+      let passwordInput = document.getElementById("password");
+      let togglePasswordButton = document.getElementById("togglePassword");
+      let loginButton = document.getElementById("loginButton").value;
+
+      togglePasswordButton.addEventListener("click", function () {
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          togglePasswordButton.innerHTML = '<i class="fas fa-eye-slash"></i>';
+        } else {
+          passwordInput.type = "password";
+          togglePasswordButton.innerHTML = '<i class="fas fa-eye"></i>';
+        }
+      });
+
+      loginButton.addEventListener("click", function () {
+        console.log("Error THerer");
+        // Redirect to login page page
+        window.location.href = "../sign_in_page/login.htm";
+      });
+
+      form.addEventListener("mousemove", (e) => {
+        var x = (window.innerWidth / 2 - e.pageX) / 12;
+        var y = (window.innerHeight / 2 - e.pageY) / 12;
+        form.style.transform = "rotateX(" + x + "deg) rotateY(" + y + "deg)";
+      });
+
+      form.addEventListener("mouseleave", function () {
+        form.style.transform = "rotateX(0deg) rotateY(0deg)";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "project_13-(qrconnect)",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.0",
+    "dotenv": "^16.1.1",
+    "ejs": "^3.1.9",
+    "env": "^0.0.2",
+    "express": "^4.18.2",
+    "mongoose": "^7.2.1",
+    "nodemon": "^2.0.22",
+    "qrcode": "^1.5.3"
+  }
+}
